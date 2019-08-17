@@ -1,20 +1,14 @@
 from PyMQL5 import PyMQL5
+from conf import *
 
 
 mql5 = PyMQL5()
-ticks = mql5.CopyTicks("CCMU19", 0, 10)
+ticks = mql5.CopyTicks(symbol, 0, 5)
 if ticks == None:
     print("Não a Conexão com MetaTrader5 verifique!")
     exit()
-for tick in ticks:
-    #print(tick)
-    print("Time: %s" % tick["TIME"])
-    print("BID: %s" % tick["BID"])
-    print("ASK: %s" % tick["ASK"])
-    print("Último: %s" % tick["LAST"])
-    print("Volume: %s" % tick["VOLUME"])
-    print("TIME_MSC: %s" % tick["TIME_MSC"])
-    print("Flags: %s" % tick["FLAGS"])
-    print("Volume real: %s" % tick["VOLUME_REAL"])
+print("Hora BID ASK Último Volume Flags Time_MSC Volume_Real")
+for t in ticks:
+    print("%s %.2f %.2f %.2f %.1f %i %i %.1f" % (t["TIME"], t["BID"], t["ASK"], t["LAST"], t["VOLUME"], t["TIME_MSC"], t["FLAGS"], t["VOLUME_REAL"]))
 
 
