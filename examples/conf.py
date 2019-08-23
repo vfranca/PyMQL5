@@ -1,3 +1,4 @@
-symbol = "PETR4"
-period = "M5"
+symbol = "WINV19"
+period = "H1"
+digits = 5
 
